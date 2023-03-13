@@ -1,0 +1,35 @@
+[
+  {
+    "subjectName":"afrikaans",
+    "topics":[
+        {
+                "topicName": "Verlede-Tyd",
+                "questions":["Die man draf in die straat","Die buurman bou n huis.","Die brandweerman help die kat in die boom.","Oupa slap lekker in sy stoel.","Ons hoor die Hadedas op die dak.","Die Koedoe spring oor dir heining."],
+                "answers":["die man het in die straat gedraf","die buurman het in die n huis gebou","die brandweerman het die kat in die boom gehulp","oupa het lekker in sy stoel geslaap","ons het die hadedas op die dak gehoor","die koedoe het oor die heining gespring"],
+                "corrections":[],
+                "score": 0
+            },
+            {
+                "topicName": "Toekomende-Tyd",
+                "questions":["Die man draf in die straat.","Die buurman bou n huis.","Die brandweerman help die kat in die boom.","Oupa slap lekker in sy stoel.","Ons hoor die Hadedas op die dak.","Die Koedoe spring oor dir heining."],
+                "answers":["die man het in die straat gedraf","die buurman het in die n huis gebou","die brandweerman het die kat in die boom gehulp","oupa het lekker in sy stoel geslaap","ons het die hadedas op die dak gehoor","die koedoe het oor die heining gespring"],
+                "corrections":[],
+                "score": 0
+            }
+        ]
+    },
+
+
+    {
+      "subjectName":"maths",
+      "topics":[
+            {
+                "topicName": "Verlede Tyd",
+                "questions":["Die man draf in die straat","Die buurman bou n huis.","Die brandweerman help die kat in die boom.","Oupa slap lekker in sy stoel.","Ons hoor die Hadedas op die dak.","Die Koedoe spring oor dir heining."],
+                "answers":["die man het in die straat gedraf","die buurman het in die n huis gebou","die brandweerman het die kat in die boom gehulp","oupa het lekker in sy stoel geslaap","ons het die hadedas op die dak gehoor","die koedoe het oor die heining gespring"],
+                "corrections":[],
+                "score": 0
+            }
+          ]
+    }
+]

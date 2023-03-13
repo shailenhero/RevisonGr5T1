@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/verlede.css">
+    <title>Verlede Tyd</title>
+
+</head>
+
+<body>
+
+    <h1>
+        <%= topic.topicName %>
+    </h1>
+
+    <div class="QContainer">
+        <h2 class="instructions">
+            Skryf fie volgende sinne in die Verlede Tyd. <span class="counter">1</span>/<span>
+                <%= topic.questions.length %>
+            </span>
+        </h2>
+        <label for="question" class="numberLabel"> <span class="counter">1</span>. </label>
+        <p class="question">Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis ut asperi</p>
+        <hr>
+        <textarea id="answerBox" cols="90" rows="4"></textarea>
+
+        <a href="/">
+            <div id="backButton">Back</div>
+        </a>
+        <div id="button" class="active">Next</div>
+
+    </div>
+
+    <% const stringData=JSON.stringify(topic); %>
+        <input type="text" id="data" value="<%= stringData %>">
+
+        <div id="answerRes">
+
+        </div>
+
+        <div id="scoreDisplay" class="inactive">Score: <span id="scoreDisplay"></span></div>
+
+
+        <script src="/verlede.js"></script>
+</body>
+
+</html>
