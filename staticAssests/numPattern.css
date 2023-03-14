@@ -2,6 +2,12 @@ body {
     background-color: rgb(231, 250, 253);
 }
 
+h1 {
+    text-align: center;
+    margin-top: 60px;
+    margin-bottom: 100px;
+}
+
 p {
     display: inline;
 }
@@ -9,18 +15,6 @@ p {
 a {
     color: black;
     text-decoration: none;
-}
-
-#answerBox {
-    display: block;
-}
-
-
-
-h1 {
-    text-align: center;
-    margin-top: 60px;
-    margin-bottom: 100px;
 }
 
 .QContainer {
@@ -42,7 +36,12 @@ label {
     font-size: 25px;
 }
 
-
+.inputBoxABC {
+    margin-top: 10px;
+    margin-left: 10px;
+    width: 15%;
+    height: 30px;
+}
 
 #button {
     display: inline-block;
@@ -66,31 +65,10 @@ label {
     background-color: rgba(128, 255, 0, 0.374)
 }
 
-.backActive {
-    background-color: rgb(42, 186, 190);
-}
-
-.backDisabled {
-    background-color: rgba(42, 185, 190, 0.386);
-
-}
-
-#backButton {
-    display: inline-block;
-    width: 150px;
+#scoreDisplay {
+    margin-top: 30px;
     text-align: center;
-    height: 40px;
-    line-height: 40px;
-    font-size: 20px;
-    margin-left: 50%;
-    margin-top: 40px;
-    border-radius: 20px;
-    border: 1px solid black;
-
-}
-
-#data {
-    opacity: 0;
+    font-size: 50px;
 }
 
 #answerRes {
@@ -109,22 +87,7 @@ label {
     color: red;
 }
 
-#scoreDisplay {
-    margin-top: 30px;
-    text-align: center;
-    font-size: 50px;
-}
-
 .inactive {
-
-    opacity: 0;
-}
-
-input {
-    opacity: 1;
-}
-
-.subButton {
 
     opacity: 0;
 }

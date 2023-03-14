@@ -41,7 +41,7 @@ app.get('/', function (req, res) {
 
 app.get('/:subject', async function (req, res) {
     const { subject } = req.params;
-    console.log(subject);
+
     const subjectFound = await Subject.find({ subjectName: subject })
     // .then(function (res) {
     //     console.log("here is the data");
@@ -49,7 +49,7 @@ app.get('/:subject', async function (req, res) {
     // }).catch(function (err) {
     //     console.log(err);
     // })
-    console.log(subjectFound);
+
     res.render("TopicsPage", { subject: subjectFound });
 
     // const newdata = new Subject({
@@ -68,10 +68,10 @@ app.get('/:subject', async function (req, res) {
 
 app.get('/:subject/:topic', async function (req, res) {
     const { subject, topic } = req.params;
-    console.log(subject + topic);
+    //console.log(subject + topic);
     const subjectFound = await Subject.find({ subjectName: subject })
     const topicData = subjectFound[0].topics
-    console.log(topicData);
+    //console.log(topicData);
     let topicFound = {};
     for (const currentTopic of topicData) {
         if (currentTopic.topicName === topic) {
@@ -79,7 +79,7 @@ app.get('/:subject/:topic', async function (req, res) {
             console.log('topic found///////////////');
         }
     }
-    console.log(topicFound);
+    //console.log(topicFound);
     res.render(`${topic}`, { topic: topicFound });
 })
 
