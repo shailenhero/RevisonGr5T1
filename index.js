@@ -80,7 +80,7 @@ app.get('/:subject/:topic', async function (req, res) {
         }
     }
     console.log(topicFound);
-    res.render(`./${subject}/${topic}`, { topic: topicFound });
+    res.render(`${topic}`, { topic: topicFound });
 })
 
 app.put('/', async function (req, res) { // handle form score data
