@@ -14,26 +14,20 @@ const answerRes = document.querySelector("#answerRes");
 const scoreDisplay = document.querySelector("#scoreDisplay")
 const scoreBox = document.querySelector("#scoreBox")
 const topicBox = document.querySelector("#topicBox")
-const subjectBox = document.querySelector("#subjectBox")
+const correctionsBox = document.querySelector("#correctionsBox")
+let corrections = "";
 
 let score = 0;
 let qNum = -1;
 const topicData = JSON.parse(jasonData.value);
 
-async function setUpQuestion() {
-    if (qNum < 5) {
-        qNum = qNum + 1;
-        questionDisplay.innerText = topicData.questions[qNum];
-        counter[0].innerText = qNum + 1;
-        counter[1].innerText = qNum + 1;
-        answerBox.value = "";
-    }
-    else {
+function setUpQuestion() {
+    if (qNum > 4) {
         button.classList.add("disabled")
         button.disabled = true;
-        backButton.classList.add("backDisabled")
-        backButton.disabled = true;
-        backLink.removeAttribute("href");
+
+
+
         subButton.classList.remove("subButton")
         subButton.classList.add("subButtonActive")
 
@@ -43,8 +37,16 @@ async function setUpQuestion() {
         //// send score to backend
         scoreBox.value = score;
         topicBox.value = topicData.topicName;
-        subjectBox.value = "afrikaans";
+        correctionsBox.value = correctionsBox.value + corrections
+    }
+    else {
 
+
+        qNum = qNum + 1;
+        questionDisplay.innerText = topicData.questions[qNum];
+        counter[0].innerText = qNum + 1;
+        counter[1].innerText = qNum + 1;
+        answerBox.value = "";
 
     }
 }
@@ -52,7 +54,7 @@ async function setUpQuestion() {
 function capturedata() {
     let userAnswer = answerBox.value.toLowerCase();
 
-    if (userAnswer === topicData.answers[qNum]) {
+    if (userAnswer.trim() === topicData.answers[qNum]) {
         score = score + 1;
         answerRes.classList.remove("incorrect");
         answerRes.classList.add("correct")
@@ -62,10 +64,12 @@ function capturedata() {
         answerRes.innerHTML = "Incorrect";
         answerRes.classList.remove("correct");
         answerRes.classList.add("incorrect")
+        corrections = corrections + userAnswer + ",";
     }
 }
 
 button.addEventListener('click', function () {
+    console.log("btn clicked")
     capturedata();
     setUpQuestion();
 })

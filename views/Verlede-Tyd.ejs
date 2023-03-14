@@ -27,10 +27,13 @@
         <hr>
         <textarea id="answerBox" cols="90" rows="4"></textarea>
 
-        <a href="/" id="backLink">
+        <div class="corrections"><a href="/afrikaans/Verlede-Tyd/corrections">View Corrections</a></div>
+
+        <!-- <a href="/" id="backLink">
             <div id="backButton" class="backActive">Back</div>
-        </a>
-        <div id="button" class="active">Next</div>
+        </a> -->
+
+        <button class="active" id="button">Next</button>
 
     </div>
 
@@ -46,6 +49,7 @@
         <form method="POST" action="/?_method=PUT">
             <input class="formDataFields" type="text" name="score" id="scoreBox">
             <input class="formDataFields" type="text" name="topicName" id="topicBox">
+            <input class="formDataFields" type="text" name="corrections" id="correctionsBox">
 
             <button class="subButton">Submit</button>
         </form>

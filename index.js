@@ -84,11 +84,28 @@ app.get('/:subject/:topic', async function (req, res) {
 })
 
 app.put('/', async function (req, res) { // handle form score data
-    const { score, topicName } = req.body;
+    const { score, topicName, corrections } = req.body;
     console.log("/////////////////////score")
     console.log(score);
     console.log(topicName);
+    console.log(corrections);
 
+    // capture corrections
+    let sentence = ""
+    const correctionsArr = []
+    for (let i = 0; i < corrections.length; i++) {
+        if (corrections[i] === ",") {
+            //push word to array
+            correctionsArr.push(sentence)
+            sentence = ""
+        }
+        else {
+            //push letter to word
+            sentence = sentence + corrections[i];
+        }
+    }
+    console.log("/////////////////////Corrections array")
+    console.log(correctionsArr);
 
     // update score in db
     const updatedScore = await Subject.updateOne(
@@ -101,10 +118,31 @@ app.put('/', async function (req, res) { // handle form score data
             }
         });
 
+    //update corrections in db
+    const updatedCorrections = await Subject.updateOne(
+        {
+            "topics.topicName": topicName
+        },
+        {
+            "$set": {
+                "topics.$.corrections": correctionsArr
+            }
+        });
+
 
     console.log("/////////////////////updated score")
     console.log(updatedScore);
     res.redirect('/')
+})
+
+//handling corrections
+app.get('/:subject/:topic/corrections', async function (req, res) {
+    const { subject, topic } = req.params;
+    const subjectFound = await Subject.find({ subjectName: subject })
+    console.log(subjectFound)
+    topicdata = subjectFound[0].topics
+    console.log(topicdata)
+    res.render(`${topic}Corrections`, { topicdata });
 })
 
 
