@@ -4,15 +4,14 @@ const mongoose = require('mongoose');
 mongoose.set('strictQuery', false);
 const path = require('path');
 const methodeOverride = require('method-override');
+const PORT = process.env.PORT || 3000;
 
 
 const startDB = async function () {
     try {
         await mongoose.connect('mongodb+srv://shailenhero:rXZNDKgMjhvb6MYZ@subjectscluster.9jypgt9.mongodb.net/RevisionBookletData?retryWrites=true&w=majority')
         console.log("db Connected");
-        app.listen(3000, function () {
-            console.log("listening on port 3000");
-        })
+
     } catch (error) {
         console.log(error);
         console.log("db unsuccessful");
@@ -20,6 +19,7 @@ const startDB = async function () {
 }
 
 startDB();
+
 
 ////////////// setting defaults
 const Subject = require('./DBModel/subjects');
@@ -29,6 +29,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'staticAssests')));
 app.use(methodeOverride('_method'));
 ////////////// routes
+
+app.listen(PORT, function () {
+    console.log("listening on port 3000");
+})
+
 
 app.get('/', function (req, res) {
     res.render("HomePage");
