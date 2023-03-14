@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Patterns</title>
+</head>
+
+<body>
+    <h1>
+        <%= topic.topicName %>
+    </h1>
+
+    <div class="QContainer">
+        <h2 class="instructions">
+            Complete the Sequence <span class="counter">1</span>/<span>
+                <%= topic.questions.length %>
+            </span>
+        </h2>
+        <label for="question" class="numberLabel"> <span class="counter">1</span>. </label>
+        <p class="question">Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis ut asperi</p>
+        <hr>
+        <textarea id="answerBox" cols="90" rows="4"></textarea>
+
+        <div class="corrections"><a href="/afrikaans/Verlede-Tyd/corrections">View Corrections</a></div>
+
+        <!-- <a href="/" id="backLink">
+            <div id="backButton" class="backActive">Back</div>
+        </a> -->
+
+        <button class="active" id="button">Next</button>
+
+    </div>
+    <!-- capture data and scores -->
+    <% const stringData=JSON.stringify(topic); %>
+        <input type="text" id="data" value="<%= stringData %>">
+
+        <div id="answerRes">
+
+        </div>
+
+        <div id="scoreDisplay" class="inactive">Score: <span id="scoreDisplay"></span></div>
+        <script src="/numPattern.js"></script>
+</body>
+
+</html>
