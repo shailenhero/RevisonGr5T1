@@ -27,8 +27,8 @@
         <hr>
         <textarea id="answerBox" cols="90" rows="4"></textarea>
 
-        <a href="/">
-            <div id="backButton">Back</div>
+        <a href="/" id="backLink">
+            <div id="backButton" class="backActive">Back</div>
         </a>
         <div id="button" class="active">Next</div>
 
@@ -43,6 +43,12 @@
 
         <div id="scoreDisplay" class="inactive">Score: <span id="scoreDisplay"></span></div>
 
+        <form method="POST" action="/?_method=PUT">
+            <input class="formDataFields" type="text" name="score" id="scoreBox">
+            <input class="formDataFields" type="text" name="topicName" id="topicBox">
+
+            <button class="subButton">Submit</button>
+        </form>
 
         <script src="/verlede.js"></script>
 </body>

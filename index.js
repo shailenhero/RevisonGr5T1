@@ -3,9 +3,7 @@ const app = express();
 const mongoose = require('mongoose');
 mongoose.set('strictQuery', false);
 const path = require('path');
-
-
-
+const methodeOverride = require('method-override');
 
 
 const startDB = async function () {
@@ -29,6 +27,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'staticAssests')));
+app.use(methodeOverride('_method'));
 ////////////// routes
 
 app.get('/', function (req, res) {
@@ -76,7 +75,31 @@ app.get('/:subject/:topic', async function (req, res) {
         }
     }
     console.log(topicFound);
-    res.render(`Afrikaans/${topic}`, { topic: topicFound });
+    res.render(`${subject}/${topic}`, { topic: topicFound });
+})
+
+app.put('/', async function (req, res) { // handle form score data
+    const { score, topicName } = req.body;
+    console.log("/////////////////////score")
+    console.log(score);
+    console.log(topicName);
+
+
+    // update score in db
+    const updatedScore = await Subject.updateOne(
+        {
+            "topics.topicName": topicName
+        },
+        {
+            "$set": {
+                "topics.$.score": score
+            }
+        });
+
+
+    console.log("/////////////////////updated score")
+    console.log(updatedScore);
+    res.redirect('/')
 })
 
 
